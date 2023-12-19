@@ -1,29 +1,52 @@
-<!--- Creating NavBar -->
+<script lang="ts">
+	import Navbar from '../lib/components/Navbar.svelte';
+	import ReviewCard from '../lib/components/ReviewCard.svelte';
 
-<script>
-	export let selected;
+	// eventually use API's or place into its own data file
+	let reviews_data = [
+		{
+			author: 'Jennifer',
+			review:
+				'I have been going here for nearly 19 years! Wan and her team are the best, always make me laugh. 10/10 recommend!',
+			link: 'https://g.co/kgs/o9oYxN'
+		},
+		{
+			author: 'Rosemary',
+			review:
+				'Nikki did my nails. I absolutely love her personality and I love how my nails turned out. Will definitely be coming back many more times.',
+			link: 'https://g.co/kgs/fZVwxz'
+		},
+		{
+			author: 'Robert',
+			review:
+				'They do every thing right they care about you talk to you make you laugh. Over all great people to do business with.',
+			link: 'https://g.co/kgs/VqD7y5'
+		},
+		{
+			author: 'Mary',
+			review: 'I would like to keep this a secret. Really really really good environment.',
+			link: 'https://g.co/kgs/wTyP6Q'
+		}
+	];
 </script>
 
-<div class="navbar-container">
-	<nav class="topnav" id="myTopnav">
-		<h1 class="titlelogo">VWC Nails</h1>
-		<div class="mobile-menu">
-			<span class="bar"></span>
-			<span class="bar"></span>
-			<span class="bar"></span>
-		</div>
-		<ul class="menu-items">
-			<li><a href="/about" class="nav-links">About</a></li>
-			<li><a href="/gallery" class="nav-links">Gallery</a></li>
-			<li><a href="/services" class="nav-links">Services</a></li>
-			<li><a href="/contact" class="nav-links">Contact</a></li>
-		</ul>
-	</nav>
-</div>
+<Navbar selected={'home'} home={true} />
 
 <div class="image-container">
 	<img src="/front-page-4.jpeg" alt="Nails" />
-	<div class="front-page-text">VWC NAILS</div>
+	<div class="front-page-text">
+		<h1 class="home-page-title">Cherish your nails, cherish yourself</h1>
+	</div>
+	<button class="contact-button">
+		<p>Contact Us</p>
+	</button>
+</div>
+
+<div class="reviews-container">
+	<h1 class="review-tite">Featured Testimonials</h1>
+	{#each reviews_data as review}
+		<ReviewCard {...review} />
+	{/each}
 </div>
 
 <style>
@@ -66,7 +89,7 @@
 	}
 
 	.image-container {
-		margin-top: 2rem;
+		/* margin-top: 2rem; */
 		position: relative;
 		text-align: center;
 	}
@@ -74,10 +97,46 @@
 	.front-page-text {
 		/* center text at top center */
 		position: absolute;
-		top: 20%;
+		top: 30%;
 		left: 50%;
 		transform: translate(-50%, -50%);
 		font-size: 5rem;
 		font-family: 'Playfair Display', serif;
+		width: 100%;
+	}
+
+	.home-page-title {
+		font-size: 4rem;
+		font-family: 'Playfair Display', serif;
+	}
+
+	.contact-button {
+		position: absolute;
+		background-color: transparent;
+		top: 70%;
+		left: 50%;
+		border: 2px solid black;
+		cursor: pointer;
+		transform: translate(-50%, -50%);
+		z-index: 100;
+		font-family: 'Playfair Display', serif;
+		padding-left: 1rem;
+		padding-right: 1rem;
+		font-size: 1rem;
+	}
+
+	.contact-button:hover {
+		background-color: black;
+		color: white;
+		-webkit-transition: 0.5s ease-out;
+		transition: 0.5s ease-out;
+	}
+
+	.reviews-container {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		margin-top: 5rem;
+		padding: 2rem;
 	}
 </style>
