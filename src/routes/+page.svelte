@@ -11,15 +11,15 @@
 			link: 'https://g.co/kgs/o9oYxN'
 		},
 		{
-			author: 'Rosemary',
+			author: 'Michele',
 			review:
-				'Nikki did my nails. I absolutely love her personality and I love how my nails turned out. Will definitely be coming back many more times.',
-			link: 'https://g.co/kgs/fZVwxz'
+				'I was a walk in. They accommodated me quickly. Great pedicure and an awesome manicure.',
+			link: 'https://g.co/kgs/BfbcxH'
 		},
 		{
 			author: 'Robert',
 			review:
-				'They do every thing right they care about you talk to you make you laugh. Over all great people to do business with.',
+				'They do every thing right, they care about you, talk to you, make you laugh. Over all great people to do business with.',
 			link: 'https://g.co/kgs/VqD7y5'
 		},
 		{
@@ -43,10 +43,13 @@
 </div>
 
 <div class="reviews-container">
-	<h1 class="review-tite">Featured Testimonials</h1>
-	{#each reviews_data as review}
-		<ReviewCard {...review} />
-	{/each}
+	<h1 class="review-title">Featured Testimonials</h1>
+
+	<div class="reviews-card-container">
+		{#each reviews_data as review}
+			<ReviewCard {...review} />
+		{/each}
+	</div>
 </div>
 
 <style>
@@ -136,7 +139,28 @@
 		display: flex;
 		flex-direction: column;
 		align-items: center;
-		margin-top: 5rem;
+		/* margin-top: 5rem; */
 		padding: 2rem;
+	}
+
+	.reviews-card-container {
+		padding: 2rem;
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: 5rem;
+		align-items: start;
+		justify-self: center;
+		margin-right: 2rem;
+		grid-auto-rows: 15rem;
+	}
+
+	.review-title {
+		font-size: 3rem;
+		font-family: 'Playfair Display', serif;
+		border-bottom: 3px solid #febecc;
+		padding-bottom: 1rem;
+		display: inline-block;
+		line-height: 1.2;
+		border-radius: 3px;
 	}
 </style>
