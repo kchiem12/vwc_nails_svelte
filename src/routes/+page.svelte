@@ -1,6 +1,7 @@
 <script lang="ts">
 	import Navbar from '../lib/components/Navbar.svelte';
 	import ReviewCard from '../lib/components/ReviewCard.svelte';
+	import Footer from '../lib/components/Footer.svelte';
 
 	// eventually use API's or place into its own data file
 	let reviews_data = [

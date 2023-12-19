@@ -27,7 +27,7 @@
 		display: flex;
 		justify-content: space-around;
 		align-items: center;
-		background-color: #f5f5f5;
+		background-color: white;
 		gap: 5rem;
 		height: auto;
 		width: 100%;
