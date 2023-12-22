@@ -43,7 +43,7 @@
 		/* text-align: center; */
 		font-size: 1.75rem;
 		font-family: 'Playfair Display', serif;
-		z-index: 100;
+		z-index: 10;
 	}
 
 	.review-author {
@@ -52,8 +52,19 @@
 		font-family: 'Playfair Display', serif;
 		/* italicize it */
 		font-style: italic;
-		z-index: 100;
+		z-index: 10;
 		text-decoration: none;
 		color: #fd8ba4;
+	}
+
+	/* lets make some responsive styles */
+	@media (max-width: 768px) {
+		.review-text {
+			font-size: 1rem;
+		}
+
+		.review-author {
+			font-size: 1rem;
+		}
 	}
 </style>

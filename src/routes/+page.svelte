@@ -1,7 +1,16 @@
 <script lang="ts">
 	import Navbar from '../lib/components/Navbar.svelte';
 	import ReviewCard from '../lib/components/ReviewCard.svelte';
-	import Footer from '../lib/components/Footer.svelte';
+	import { fly } from 'svelte/transition';
+	import { onMount } from 'svelte';
+
+	let isLoaded = false;
+
+	onMount(() => {
+		setTimeout(() => {
+			isLoaded = true;
+		}, 100);
+	});
 
 	// eventually use API's or place into its own data file
 	let reviews_data = [
@@ -35,12 +44,14 @@
 
 <div class="image-container">
 	<img src="/front-page-4.jpeg" alt="Nails" />
-	<div class="front-page-text">
-		<h1 class="home-page-title">Cherish your nails, cherish yourself</h1>
-	</div>
-	<button class="contact-button">
-		<p>Contact Us</p>
-	</button>
+	{#if isLoaded}
+		<div class="front-page-text" in:fly={{ y: -50, duration: 750 }}>
+			<h1 class="home-page-title">Cherish your nails, cherish yourself</h1>
+		</div>
+		<button class="contact-button" in:fly={{ y: -50, duration: 750 }}>
+			<p>Contact Us</p>
+		</button>
+	{/if}
 </div>
 
 <div class="reviews-container">
@@ -122,7 +133,7 @@
 		border: 2px solid black;
 		cursor: pointer;
 		transform: translate(-50%, -50%);
-		z-index: 100;
+		z-index: 10;
 		font-family: 'Playfair Display', serif;
 		padding-left: 1rem;
 		padding-right: 1rem;
@@ -163,5 +174,36 @@
 		display: inline-block;
 		line-height: 1.2;
 		border-radius: 3px;
+	}
+
+	@media (max-width: 768px) {
+		.image-container {
+			height: 800px;
+			overflow: hidden;
+		}
+
+		img {
+			object-fit: cover;
+			object-position: center;
+			height: 100%;
+		}
+
+		.home-page-title {
+			font-size: 2rem;
+		}
+
+		.contact-button {
+			font-size: 0.75rem;
+		}
+
+		.reviews-card-container {
+			grid-template-columns: 1fr;
+			grid-auto-rows: 10rem;
+			gap: 5rem;
+		}
+
+		.review-title {
+			font-size: 2rem;
+		}
 	}
 </style>

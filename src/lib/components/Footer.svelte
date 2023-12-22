@@ -55,4 +55,41 @@
 		text-decoration: none;
 		color: #fc456d;
 	}
+
+	@media (max-width: 768px) {
+		.footer-buttons {
+			width: 50%;
+		}
+
+		.company-title {
+			font-size: 1.5rem;
+		}
+
+		.address {
+			font-size: 1rem;
+		}
+
+		.phone {
+			font-size: 1rem;
+		}
+
+		.footer-buttons {
+			width: 50%;
+		}
+
+		.footer-buttons a {
+			font-size: 1rem;
+		}
+
+		.lower-footer {
+			/* reverse the direction of the content in column mode */
+			flex-direction: column-reverse;
+			align-items: center;
+		}
+
+		.footer-buttons {
+			width: 100%;
+			margin-top: 1rem;
+		}
+	}
 </style>
