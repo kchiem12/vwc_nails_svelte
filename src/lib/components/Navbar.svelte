@@ -40,7 +40,7 @@
 			<li><a href="/about" class="nav-links">About</a></li>
 			<li><a href="/gallery" class="nav-links">Gallery</a></li>
 			<li><a href="/services" class="nav-links">Services</a></li>
-			<li><a href="/contact" class="nav-links">Contact</a></li>
+			<!-- <li><a href="/contact" class="nav-links">Contact</a></li> -->
 		</ul>
 	</nav>
 </div>
