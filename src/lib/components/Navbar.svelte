@@ -26,10 +26,14 @@
 			window.removeEventListener('scroll', handleScroll);
 		};
 	});
+
+	function navigate(url: string) {
+		window.location.href = url;
+	}
 </script>
 
 <div class="navbar-container">
-	<nav class="topnav" class:home class:scrolled={isScrolled} id="myTopnav">
+	<nav class="topnav" class:home class:scrolled={isScrolled || showMenu} id="myTopnav">
 		<h1 class="titlelogo"><a href="/">VWC Nails</a></h1>
 		<div class="mobile-menu" class:show={showMenu} on:click={toggleMenu}>
 			<span class="bar"></span>
@@ -37,9 +41,13 @@
 			<span class="bar"></span>
 		</div>
 		<ul class="menu-items" class:show={showMenu}>
-			<li><a href="/about" class="nav-links">About</a></li>
-			<li><a href="/gallery" class="nav-links">Gallery</a></li>
-			<li><a href="/services" class="nav-links">Services</a></li>
+			<li on:click={() => navigate('/about')}><a href="/about" class="nav-links">About</a></li>
+			<li on:click={() => navigate('/gallery')}>
+				<a href="/gallery" class="nav-links">Gallery</a>
+			</li>
+			<li on:click={() => navigate('/services')}>
+				<a href="/services" class="nav-links">Services</a>
+			</li>
 			<!-- <li><a href="/contact" class="nav-links">Contact</a></li> -->
 		</ul>
 	</nav>
@@ -116,13 +124,15 @@
 			flex-direction: column;
 			position: absolute;
 			justify-content: center;
-			background-color: white;
+			background-color: #fedcdb;
 			top: 100%;
 			width: 100%;
 			align-items: center;
 			right: -100%;
 			transition: all 0.3s ease;
 			padding: 0;
+			margin-top: -1px;
+			z-index: 1000;
 		}
 
 		.menu-items.show {
@@ -145,6 +155,14 @@
 
 		.menu-items.show {
 			right: 0;
+		}
+
+		.menu-items li {
+			padding-top: 3rem;
+			padding-bottom: 3rem;
+			font-size: 1.5rem;
+			width: 100%;
+			text-align: center;
 		}
 	}
 </style>
