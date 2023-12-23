@@ -4,6 +4,11 @@
 
 <Navbar selected={'about'} home={false} />
 
+<div class="mobile-about-title">
+	<!-- <img src="/about-philly-nails.png" alt="philly-nails" /> -->
+	<h1 class="home-page-title">Our Story</h1>
+</div>
+
 <div class="our-story">
 	<div class="story-text">
 		<h1>Our Story</h1>
@@ -17,7 +22,7 @@
 			all of our clients.
 		</p>
 	</div>
-	<img src="/about-philly-nails.png" alt="philly-nails" />
+	<img src="/about-philly-nails.png" alt="philly-nails" class="original-img" />
 </div>
 
 <div class="logistics">
@@ -57,8 +62,9 @@
 	.our-story img {
 		width: 40%;
 		height: 100%;
-		padding-bottom: 5rem;
+		padding-bottom: 10rem;
 		margin-bottom: 3rem;
+		/* margin-top: 15rem; */
 	}
 
 	.story-text {
@@ -109,5 +115,97 @@
 		font-size: 1.5rem;
 		font-family: 'Playfair Display', serif;
 		color: #595959;
+	}
+
+	.mobile-about-title {
+		display: none;
+		position: relative;
+	}
+
+	@media (max-width: 768px) {
+		.story-text h1 {
+			font-size: 4rem;
+		}
+
+		.story-text {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			width: 100%;
+			margin-top: 7.5rem;
+		}
+
+		.mobile-about-title {
+			display: block;
+			width: 100%;
+			height: 600px;
+			overflow: hidden;
+			position: relative;
+			background-image: url('/about-philly-nails.png');
+			background-size: cover;
+		}
+
+		.mobile-about-title::after {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background-color: rgba(255, 255, 255, 0.5);
+		}
+
+		.home-page-title {
+			font-size: 4rem;
+			font-family: 'Playfair Display', serif;
+			color: black;
+			position: absolute;
+			top: 40%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			z-index: 1000;
+			width: 100%;
+			text-align: center;
+		}
+
+		.story-text h1 {
+			display: none;
+		}
+
+		.our-story {
+			margin-top: 0;
+			padding-top: 0;
+		}
+
+		.story-text {
+			margin-top: 0;
+			margin-bottom: 7.5rem;
+		}
+
+		.our-story-long {
+			line-height: 2.5rem;
+		}
+
+		.original-img {
+			display: none;
+		}
+
+		.logistics {
+			flex-direction: column;
+		}
+
+		.schedule {
+			font-size: 1.25rem;
+		}
+
+		.appointments {
+			font-size: 1.25rem;
+			line-height: 2rem;
+		}
+
+		.logistics iframe {
+			width: 100%;
+			height: 400px;
+		}
 	}
 </style>
