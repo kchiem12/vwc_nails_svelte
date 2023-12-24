@@ -157,13 +157,14 @@
 
 	.reviews-card-container {
 		padding: 2rem;
+		/* padding-top: 0; */
 		display: grid;
 		grid-template-columns: repeat(2, 1fr);
 		gap: 5rem;
 		align-items: start;
 		justify-self: center;
 		margin-right: 2rem;
-		grid-auto-rows: 15rem;
+		grid-auto-rows: 17.5rem;
 	}
 
 	.review-title {
@@ -189,7 +190,8 @@
 		}
 
 		.home-page-title {
-			font-size: 2rem;
+			font-size: 3rem;
+			margin-bottom: 7.5rem;
 		}
 
 		.contact-button {
@@ -197,6 +199,7 @@
 		}
 
 		.reviews-card-container {
+			/* change the height */
 			grid-template-columns: 1fr;
 			grid-auto-rows: 10rem;
 			gap: 5rem;

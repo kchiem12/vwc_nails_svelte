@@ -33,6 +33,7 @@
 							serviceSpecification={service.serviceSpecification}
 						/>
 					{/each}
+					<p class="disclaimer"><em>*Soap-Off is $5</em></p>
 				</div>
 			</div>
 		</div>
@@ -127,9 +128,15 @@
 		text-align: center;
 	}
 
+	.disclaimer {
+		font-size: 1.1rem;
+		margin-top: 3rem;
+		text-align: right;
+	}
+
 	@media (max-width: 768px) {
 		.title {
-			font-size: 4rem;
+			font-size: 3.5rem;
 		}
 
 		.description {
@@ -139,6 +146,10 @@
 
 		.box {
 			width: 80%;
+		}
+
+		.disclaimer {
+			font-size: 1rem;
 		}
 	}
 </style>

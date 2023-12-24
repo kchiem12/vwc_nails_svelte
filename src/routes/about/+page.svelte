@@ -6,28 +6,28 @@
 	let isLoaded = false;
 
 	onMount(() => {
-		setTimeout(() => {
-			isLoaded = true;
-		});
+		isLoaded = true;
 	});
 </script>
 
 <Navbar selected={'about'} home={false} />
 
-<div class="mobile-about-title">
-	<!-- <img src="/about-philly-nails.png" alt="philly-nails" /> -->
-	<h1 class="home-page-title">Our Story</h1>
-</div>
+{#if isLoaded}
+	<div class="mobile-about-title">
+		<!-- <img src="/about-philly-nails.png" alt="philly-nails" /> -->
+		<h1 class="home-page-title" in:fly={{ y: -50, duration: 1000 }}>Our Story</h1>
+	</div>
+{/if}
 
 <div class="our-story">
 	<div class="story-text">
 		{#if isLoaded}
-			<h1 in:fly={{ y: -50, duration: 1000 }}>Our Story</h1>
-			<p class="our-story-short" in:fly={{ y: -50, duration: 1000 }}>
+			<h1 in:fly={{ y: -35, duration: 1000 }}>Our Story</h1>
+			<p class="our-story-short" in:fly={{ y: -35, duration: 1000 }}>
 				Based in Philadelphia, the City of Brotherly Love, VWC Nails was founded in 2008.
 			</p>
 
-			<p class="our-story-long" in:fly={{ y: -50, duration: 1000 }}>
+			<p class="our-story-long" in:fly={{ y: -35, duration: 1000 }}>
 				As a family owned business, we treasure the relationships we have built with our customers
 				over the years. We are committed to providing quality service and a relaxing experience for
 				all of our clients.
@@ -39,7 +39,7 @@
 			src="/about-philly-nails.png"
 			alt="philly-nails"
 			class="original-img"
-			in:fly={{ y: -50, duration: 1000 }}
+			in:fly={{ y: -35, duration: 1000 }}
 		/>
 	{/if}
 </div>
@@ -214,11 +214,11 @@
 		}
 
 		.schedule {
-			font-size: 1.25rem;
+			font-size: 1.05rem;
 		}
 
 		.appointments {
-			font-size: 1.25rem;
+			font-size: 1.05rem;
 			line-height: 2rem;
 		}
 
@@ -227,4 +227,14 @@
 			height: 400px;
 		}
 	}
+
+	/* @media (max-width: 480px) {
+		.schedule {
+			font-size: 1rem;
+		}
+
+		.appointments {
+			font-size: 1rem;
+		}
+	} */
 </style>

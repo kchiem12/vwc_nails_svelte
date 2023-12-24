@@ -8,8 +8,8 @@ export const services: Service[] = [
   },
   {
     serviceName: "Manicures",
-    servicePrice: ["$15", "$8", "$8", "$25; Soap-off $5", "$35 Up; Soap-off $5"],
-    serviceSpecification: ["Standard", "French", "American", "Gel (OPI)", "DIP Powder"]
+    servicePrice: ["$15", "$8", "$8", "$25", "$35 Up"],
+    serviceSpecification: ["Standard", "French", "American", "Gel (OPI)*", "DIP Powder*"]
   },
   {
     serviceName: "Pedicures",
