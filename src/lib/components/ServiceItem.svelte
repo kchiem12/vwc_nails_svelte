@@ -17,4 +17,10 @@
 		font-size: 3rem;
 		margin-bottom: 1rem;
 	}
+
+	@media (max-width: 768px) {
+		.service-listing h3 {
+			font-size: 2.5rem;
+		}
+	}
 </style>

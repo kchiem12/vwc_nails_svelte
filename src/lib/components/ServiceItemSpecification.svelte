@@ -28,4 +28,11 @@
 		flex-grow: 1;
 		margin: 0 5px;
 	}
+
+	@media (max-width: 768px) {
+		.service-item {
+			font-size: 1rem;
+			padding-bottom: 2rem;
+		}
+	}
 </style>

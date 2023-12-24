@@ -116,4 +116,19 @@
 		font-size: 1.1rem;
 		text-align: center;
 	}
+
+	@media (max-width: 768px) {
+		.title {
+			font-size: 4rem;
+		}
+
+		.description {
+			font-size: 1.5rem;
+			padding: 2rem;
+		}
+
+		.box {
+			width: 80%;
+		}
+	}
 </style>
