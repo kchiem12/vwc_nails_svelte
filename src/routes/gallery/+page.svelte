@@ -35,11 +35,18 @@
 		border-bottom: 3px solid #febecc;
 	}
 
-	.photo-gallery {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		justify-content: center;
-		margin-top: 5rem;
+	@media (max-width: 768px) {
+		.gallery-intro h1 {
+			font-size: 5rem;
+		}
+
+		.gallery-intro {
+			margin-top: 5rem;
+		}
+
+		.gallery-intro p {
+			font-size: 1.5rem;
+			padding: 2rem;
+		}
 	}
 </style>

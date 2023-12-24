@@ -10,6 +10,8 @@
 		let lightbox = new PhotoSwipeLightbox({
 			gallery: '#' + galleryId,
 			childSelector: 'a',
+			tapAction: 'close',
+			doubleTapAction: 'zoom',
 			pswpModule: () => import('photoswipe')
 		});
 		lightbox.init();
@@ -41,5 +43,21 @@
 	img {
 		width: 150px;
 		height: 200px;
+	}
+
+	@media (max-width: 768px) {
+		.pswp-gallery {
+			padding: 2rem;
+		}
+
+		img {
+			width: 100%;
+			height: auto;
+		}
+
+		.pswp-gallery a {
+			display: flex;
+			justify-content: center;
+		}
 	}
 </style>
