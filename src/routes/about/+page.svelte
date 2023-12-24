@@ -1,5 +1,15 @@
 <script>
 	import Navbar from '../../lib/components/Navbar.svelte';
+	import { onMount } from 'svelte';
+	import { fly } from 'svelte/transition';
+
+	let isLoaded = false;
+
+	onMount(() => {
+		setTimeout(() => {
+			isLoaded = true;
+		});
+	});
 </script>
 
 <Navbar selected={'about'} home={false} />
@@ -11,18 +21,27 @@
 
 <div class="our-story">
 	<div class="story-text">
-		<h1>Our Story</h1>
-		<p class="our-story-short">
-			Based in Philadelphia, the City of Brotherly Love, VWC Nails was founded in 2008.
-		</p>
+		{#if isLoaded}
+			<h1 in:fly={{ y: -50, duration: 1000 }}>Our Story</h1>
+			<p class="our-story-short" in:fly={{ y: -50, duration: 1000 }}>
+				Based in Philadelphia, the City of Brotherly Love, VWC Nails was founded in 2008.
+			</p>
 
-		<p class="our-story-long">
-			As a family owned business, we treasure the relationships we have built with our customers
-			over the years. We are committed to providing quality service and a relaxing experience for
-			all of our clients.
-		</p>
+			<p class="our-story-long" in:fly={{ y: -50, duration: 1000 }}>
+				As a family owned business, we treasure the relationships we have built with our customers
+				over the years. We are committed to providing quality service and a relaxing experience for
+				all of our clients.
+			</p>
+		{/if}
 	</div>
-	<img src="/about-philly-nails.png" alt="philly-nails" class="original-img" />
+	{#if isLoaded}
+		<img
+			src="/about-philly-nails.png"
+			alt="philly-nails"
+			class="original-img"
+			in:fly={{ y: -50, duration: 1000 }}
+		/>
+	{/if}
 </div>
 
 <div class="logistics">

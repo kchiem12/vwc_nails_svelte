@@ -2,32 +2,42 @@
 	import Navbar from '../../lib/components/Navbar.svelte';
 	import ServiceItem from '$lib/components/ServiceItem.svelte';
 	import { services } from '$lib/data/services';
+	import { onMount } from 'svelte';
+	import { fly } from 'svelte/transition';
+
+	let isLoaded = false;
+
+	onMount(() => {
+		isLoaded = true;
+	});
 </script>
 
 <Navbar selected="services" home={false} />
 
-<div class="services-intro">
-	<h1 class="title">Our Services</h1>
+{#if isLoaded}
+	<div class="services-intro" in:fly={{ y: -50, duration: 750 }}>
+		<h1 class="title">Our Services</h1>
 
-	<p class="description">
-		We take care in the service we provide to ensure top quality results. Please take your time
-		looking over the services we provide.
-	</p>
+		<p class="description">
+			We take care in the service we provide to ensure top quality results. Please take your time
+			looking over the services we provide.
+		</p>
 
-	<div class="box">
-		<div class="box-inner">
-			<div class="services-menu">
-				{#each services as service}
-					<ServiceItem
-						serviceName={service.serviceName}
-						servicePrice={service.servicePrice}
-						serviceSpecification={service.serviceSpecification}
-					/>
-				{/each}
+		<div class="box">
+			<div class="box-inner">
+				<div class="services-menu">
+					{#each services as service}
+						<ServiceItem
+							serviceName={service.serviceName}
+							servicePrice={service.servicePrice}
+							serviceSpecification={service.serviceSpecification}
+						/>
+					{/each}
+				</div>
 			</div>
 		</div>
 	</div>
-</div>
+{/if}
 
 <style>
 	.services-intro {
@@ -106,7 +116,7 @@
 	}
 
 	.title {
-		font-size: 3rem;
+		font-size: 5rem;
 		margin: 0;
 		border-bottom: 3px solid #febecc;
 		margin-bottom: 3rem;

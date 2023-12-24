@@ -3,8 +3,11 @@
 	import type { Image } from '../Image';
 	import PhotoSwipeLightbox from 'photoswipe/lightbox';
 	import 'photoswipe/photoswipe.css';
+	import { fly } from 'svelte/transition';
 	export let galleryId: string;
 	export let images: Image[];
+
+	let isLoaded = false;
 
 	onMount(() => {
 		let lightbox = new PhotoSwipeLightbox({
@@ -15,20 +18,28 @@
 			pswpModule: () => import('photoswipe')
 		});
 		lightbox.init();
+		isLoaded = true;
 	});
 </script>
 
 <div class="pswp-gallery" id={galleryId}>
-	{#each images as image}
-		<a
-			href={image.largeURL}
-			data-pswp-width={image.width}
-			data-pswp-height={image.height}
-			target="_blank"
-			rel="noreferrer"
-		>
-			<img src={image.thumbnailURL} alt={image.alt} />
-		</a>
+	{#each images as image, i}
+		{#if isLoaded}
+			<a
+				href={image.largeURL}
+				data-pswp-width={image.width}
+				data-pswp-height={image.height}
+				target="_blank"
+				rel="noreferrer"
+				in:fly={{ y: -50, duration: 500, delay: i * 100 }}
+			>
+				<img
+					src={image.thumbnailURL}
+					alt={image.alt}
+					in:fly={{ y: -50, duration: 500, delay: i * 100 }}
+				/>
+			</a>
+		{/if}
 	{/each}
 </div>
 

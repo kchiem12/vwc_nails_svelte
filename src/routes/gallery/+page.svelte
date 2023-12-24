@@ -2,19 +2,31 @@
 	import Navbar from '../../lib/components/Navbar.svelte';
 	import ImageGallery from '../../lib/components/ImageGallery.svelte';
 	import { images } from '../../lib/data/images';
+	import { onMount } from 'svelte';
+	import { fly } from 'svelte/transition';
+
+	let isLoaded = false;
+
+	onMount(() => {
+		setTimeout(() => {
+			isLoaded = true;
+		});
+	});
 </script>
 
 <Navbar selected={'gallery'} home={false} />
 
-<div class="gallery-intro">
-	<h1>Gallery</h1>
-	<p>
-		These are select photos of designs we have done for clients. Feel free to request any of them.
-	</p>
-</div>
+{#if isLoaded}
+	<div class="gallery-intro" in:fly={{ y: -50, duration: 1000 }}>
+		<h1>Gallery</h1>
+		<p>
+			These are select photos of designs we have done for clients. Feel free to request any of them.
+		</p>
+	</div>
 
-<!-- <div class="photo-gallery"> -->
-<ImageGallery galleryId="gallery" {images} />
+	<!-- <div class="photo-gallery"> -->
+	<ImageGallery galleryId="gallery" {images} />
+{/if}
 
 <!-- </div> -->
 
@@ -29,7 +41,7 @@
 	}
 
 	.gallery-intro h1 {
-		font-size: 3rem;
+		font-size: 6rem;
 		font-weight: 700;
 		margin-bottom: 2rem;
 		border-bottom: 3px solid #febecc;
