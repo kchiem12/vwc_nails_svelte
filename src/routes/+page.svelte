@@ -48,9 +48,9 @@
 		<div class="front-page-text" in:fly={{ y: -50, duration: 750 }}>
 			<h1 class="home-page-title">Cherish your nails, cherish yourself</h1>
 		</div>
-		<button class="contact-button" in:fly={{ y: -50, duration: 750 }}>
-			<p>Contact Us</p>
-		</button>
+		<a class="contact-button" in:fly={{ y: -50, duration: 750 }} href="tel:2154650596">
+			<p>Contact Us<br />215-465-0596</p>
+		</a>
 	{/if}
 </div>
 
@@ -138,13 +138,14 @@
 		padding-left: 1rem;
 		padding-right: 1rem;
 		font-size: 1rem;
+		border-radius: 5px;
+		transition: 0.5s ease-out;
+		-webkit-transition: 0.5s ease-out;
 	}
 
 	.contact-button:hover {
 		background-color: black;
 		color: white;
-		-webkit-transition: 0.5s ease-out;
-		transition: 0.5s ease-out;
 	}
 
 	.reviews-container {

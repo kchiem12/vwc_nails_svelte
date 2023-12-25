@@ -22,6 +22,7 @@
 		<p>
 			These are select photos of designs we have done for clients. Feel free to request any of them.
 		</p>
+		<p><em>Click on any image to enlarge</em></p>
 	</div>
 
 	<!-- <div class="photo-gallery"> -->
