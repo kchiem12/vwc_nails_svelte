@@ -17,6 +17,10 @@
 	}
 </script>
 
+<svelte:head>
+	<link rel="icon" type="image/svg" href={'/favicon.svg'} />
+</svelte:head>
+
 <Announcement
 	show={showAnnouncement}
 	message="We will be closed December 25th & 26th. Happy Holidays!!"
