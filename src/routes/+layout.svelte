@@ -23,7 +23,7 @@
 
 <Announcement
 	show={showAnnouncement}
-	message="We will be closed December 25th & 26th. Happy Holidays!!"
+	message="We will be closed January 1st and 2nd. Happy New Years!!"
 	{closeAnnouncement}
 />
 
