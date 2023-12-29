@@ -10,35 +10,53 @@
 	onMount(() => {
 		isLoaded = true;
 	});
+
+	// function makeVisible() {
+	// 	const element = document.querySelector('.services-intro');
+	// 	if (element) {
+	// 		element.style.visibility = 'visible';
+	// 	}
+	// }
 </script>
 
 <Navbar selected="services" home={false} />
 
-{#if isLoaded}
-	<div class="services-intro" in:fly={{ y: -50, duration: 750 }}>
-		<h1 class="title">Our Services</h1>
+<!-- {#if isLoaded} -->
+<div
+	class:visible={isLoaded}
+	class="services-intro"
+	in:fly={{
+		y: -50,
+		duration: 750
+	}}
+>
+	<h1 class="title">Our Services</h1>
 
-		<p class="description">
-			We take care in the service we provide to ensure top quality results. Please take your time
-			looking over the services we provide.
-		</p>
+	<p class="description">
+		We take care in the service we provide to ensure top quality results. Please take your time
+		looking over the services we provide.
+	</p>
 
-		<div class="box">
-			<div class="box-inner">
-				<div class="services-menu">
-					{#each services as service}
-						<ServiceItem
-							serviceName={service.serviceName}
-							servicePrice={service.servicePrice}
-							serviceSpecification={service.serviceSpecification}
-						/>
-					{/each}
-					<p class="disclaimer"><em>*Soap-Off is $5</em></p>
-				</div>
+	<div class="box">
+		<div class="box-inner">
+			<div class="services-menu">
+				{#each services as service}
+					<ServiceItem
+						serviceName={service.serviceName}
+						servicePrice={service.servicePrice}
+						serviceSpecification={service.serviceSpecification}
+					/>
+				{/each}
+				<p class="disclaimer"><em>*Soap-Off is $5</em></p>
 			</div>
 		</div>
 	</div>
-{/if}
+</div>
+<!-- {/if} -->
+
+<svelte:head>
+	<title>Services</title>
+</svelte:head>
 
 <style>
 	.services-intro {
@@ -48,6 +66,16 @@
 		justify-content: center;
 		align-items: center;
 		font-family: 'Playfair Display', serif;
+		visibility: hidden;
+		opacity: 0;
+		transition:
+			visibility 0s,
+			opacity 0.5s linear;
+	}
+
+	.services-intro.visible {
+		visibility: visible;
+		opacity: 1;
 	}
 
 	.services-menu {

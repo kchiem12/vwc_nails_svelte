@@ -65,6 +65,10 @@
 	></iframe>
 </div>
 
+<svelte:head>
+	<title>About</title>
+</svelte:head>
+
 <style>
 	.our-story {
 		padding-top: 12rem;

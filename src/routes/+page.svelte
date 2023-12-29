@@ -64,6 +64,10 @@
 	</div>
 </div>
 
+<svelte:head>
+	<title>VWC Nails</title>
+</svelte:head>
+
 <style>
 	@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
 

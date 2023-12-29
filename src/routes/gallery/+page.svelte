@@ -31,6 +31,10 @@
 
 <!-- </div> -->
 
+<svelte:head>
+	<title>Gallery</title>
+</svelte:head>
+
 <style>
 	.gallery-intro {
 		display: flex;
