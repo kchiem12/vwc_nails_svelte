@@ -2,34 +2,27 @@
 	import Navbar from '../../lib/components/Navbar.svelte';
 	import ServiceItem from '$lib/components/ServiceItem.svelte';
 	import { services } from '$lib/data/services';
-	import { onMount } from 'svelte';
 	import { fly } from 'svelte/transition';
 
-	let isLoaded = false;
+	// let isLoaded = false;
 
-	onMount(() => {
-		isLoaded = true;
-	});
+	// onMount(() => {
+	// 	setTimeout(() => {
+	// 		isLoaded = true;
+	// 	}, 50);
+	// });
 
-	// function makeVisible() {
-	// 	const element = document.querySelector('.services-intro');
-	// 	if (element) {
-	// 		element.style.visibility = 'visible';
-	// 	}
-	// }
+	// // function makeVisible() {
+	// // 	const element = document.querySelector('.services-intro');
+	// // 	if (element) {
+	// // 		element.style.visibility = 'visible';
+	// // 	}
+	// // }
 </script>
 
 <Navbar selected="services" home={false} />
 
-<!-- {#if isLoaded} -->
-<div
-	class:visible={isLoaded}
-	class="services-intro"
-	in:fly={{
-		y: -50,
-		duration: 750
-	}}
->
+<div class="fade-in-drop services-intro">
 	<h1 class="title">Our Services</h1>
 
 	<p class="description">
@@ -52,7 +45,6 @@
 		</div>
 	</div>
 </div>
-<!-- {/if} -->
 
 <svelte:head>
 	<title>Services</title>
@@ -66,17 +58,12 @@
 		justify-content: center;
 		align-items: center;
 		font-family: 'Playfair Display', serif;
-		visibility: hidden;
-		opacity: 0;
-		transition:
-			visibility 0s,
-			opacity 0.5s linear;
 	}
 
-	.services-intro.visible {
+	/* .services-intro.visible {
 		visibility: visible;
 		opacity: 1;
-	}
+	} */
 
 	.services-menu {
 		display: flex;
@@ -160,6 +147,21 @@
 		font-size: 1.1rem;
 		margin-top: 3rem;
 		text-align: right;
+	}
+
+	@keyframes fadeInDrop {
+		from {
+			opacity: 0;
+			transform: translateY(-20px); /* Adjust the vertical movement as needed */
+		}
+		to {
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
+
+	.fade-in-drop {
+		animation: fadeInDrop 0.75s ease-out forwards;
 	}
 
 	@media (max-width: 768px) {

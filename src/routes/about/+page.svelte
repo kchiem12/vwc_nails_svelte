@@ -20,19 +20,19 @@
 {/if}
 
 <div class="our-story">
-	<div class="story-text">
-		{#if isLoaded}
-			<h1 in:fly={{ y: -35, duration: 1000 }}>Our Story</h1>
-			<p class="our-story-short" in:fly={{ y: -35, duration: 1000 }}>
-				Based in Philadelphia, the City of Brotherly Love, VWC Nails was founded in 2008.
-			</p>
+	<div class="story-text fade-in-drop">
+		<!-- {#if isLoaded} -->
+		<h1 in:fly={{ y: -35, duration: 1000 }}>Our Story</h1>
+		<p class="our-story-short" in:fly={{ y: -35, duration: 1000 }}>
+			Based in Philadelphia, the City of Brotherly Love, VWC Nails was founded in 2008.
+		</p>
 
-			<p class="our-story-long" in:fly={{ y: -35, duration: 1000 }}>
-				As a family owned business, we treasure the relationships we have built with our customers
-				over the years. We are committed to providing quality service and a relaxing experience for
-				all of our clients.
-			</p>
-		{/if}
+		<p class="our-story-long" in:fly={{ y: -35, duration: 1000 }}>
+			As a family owned business, we treasure the relationships we have built with our customers
+			over the years. We are committed to providing quality service and a relaxing experience for
+			all of our clients.
+		</p>
+		<!-- {/if} -->
 	</div>
 	{#if isLoaded}
 		<img
@@ -143,6 +143,21 @@
 	.mobile-about-title {
 		display: none;
 		position: relative;
+	}
+
+	@keyframes fadeInDrop {
+		from {
+			opacity: 0;
+			transform: translateY(-35px); /* Adjust the vertical movement as needed */
+		}
+		to {
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
+
+	.fade-in-drop {
+		animation: fadeInDrop 1s ease forwards;
 	}
 
 	@media (max-width: 768px) {
