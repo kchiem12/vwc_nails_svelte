@@ -63,5 +63,32 @@ export const images: Image[] = [
     width: 600,
     height: 800,
     alt: "display_10"
+  },
+  {
+    largeURL: "/display_11.JPEG",
+    thumbnailURL: "/reimages/display_11.JPEG",
+    width: 600,
+    height: 800,
+    alt: "display_11"
+  },
+  {
+    largeURL: "/display_12.JPEG",
+    thumbnailURL: "/reimages/display_12.JPEG",
+    width: 600,
+    height: 800,
+    alt: "display_12"
+  },
+  {
+    largeURL: "/display_13.JPEG",
+    thumbnailURL: "/reimages/display_13.JPEG",
+    width: 600,
+    height: 800,
+    alt: "display_13"
+  },{
+    largeURL: "/display_14.JPEG",
+    thumbnailURL: "/reimages/display_14.JPEG",
+    width: 600,
+    height: 800,
+    alt: "display_14"
   }
 ]
