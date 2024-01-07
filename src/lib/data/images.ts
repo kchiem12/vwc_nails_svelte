@@ -84,11 +84,5 @@ export const images: Image[] = [
     width: 600,
     height: 800,
     alt: "display_13"
-  },{
-    largeURL: "/display_14.JPEG",
-    thumbnailURL: "/reimages/display_14.JPEG",
-    width: 600,
-    height: 800,
-    alt: "display_14"
   }
 ]
