@@ -21,11 +21,11 @@
 	<link rel="icon" type="image/svg" href={'/favicon.svg'} />
 </svelte:head>
 
-<!-- <Announcement
+<Announcement
 	show={showAnnouncement}
-	message="We will be closed January 1st and 2nd. Happy New Years!!"
+	message="We will be closed today, January 16th, due to inclement weather. Stay safe!"
 	{closeAnnouncement}
-/> -->
+/>
 
 <slot />
 
